@@ -19,16 +19,21 @@ var playerPicks;
 var playerGuess;
 var wordChoice;
 var dash;
+var dolose;
 
 
 // Random Word Choices
 
 	var self = {
 	updateWins: function() {
-		playerWins.innerHTML = wins;
+		wins;
+	},
+	updateLoses: function() {
+		loses;
 	},
 	updateGuess: function() {
-		numberOfGuesses
+		numberOfGuesses;
+
 	},
 	updateMarks: function() {
 		dash = "";
@@ -68,7 +73,13 @@ var dash;
   				  newDiv.innerHTML = letter;
   				  playerGuess.appendChild(newDiv);
   				  numberOfGuesses-=1;
+  				  if (numberOfGuesses < 0) {
+  				  	loses++;
+  				  }
+  				  playerLoses.innerHTML = loses;
   				  playerPicks.innerHTML = numberOfGuesses;
+  				  playerWins.innerHTML = wins;
+
 			}
 		dashMarks.innerHTML = placeHolders.join("");
 
@@ -99,9 +110,8 @@ document.addEventListener("DOMContentLoaded", function(){
 	self.updateWins()
 	
 
-	var playerLoses = document.getElementById("loses");
-	playerLoses.innerHTML = "Loses will show here";
-
+	playerLoses = document.getElementById("loses");
+	self.updateLoses() 
 
 })
 document.addEventListener("keydown", function(event){
