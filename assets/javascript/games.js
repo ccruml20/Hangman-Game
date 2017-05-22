@@ -20,16 +20,19 @@ var playerGuess;
 var wordChoice;
 var dash;
 var dolose;
+var wordRandom;
+var updateMarks;
 
 
 // Random Word Choices
 
 	var self = {
+
 	updateWins: function() {
-		wins;
+		// wins;
 	},
 	updateLoses: function() {
-		loses;
+		// loses;
 	},
 	updateGuess: function() {
 		numberOfGuesses;
@@ -61,6 +64,7 @@ var dolose;
 			if (wordChoice.charAt(i)=== letter) {
 				console.log("im the letter",letter);
 				placeHolders[i] = letter;
+				console.log("complete", letter);
 				wins++;
 				console.log(wins);
 				wrongGuess = false;				
@@ -73,9 +77,11 @@ var dolose;
   				  newDiv.innerHTML = letter;
   				  playerGuess.appendChild(newDiv);
   				  numberOfGuesses-=1;
-  				  if (numberOfGuesses < 0) {
-  				  	loses++;
+  				  if (numberOfGuesses == 0) {
+
+  				  	loses++; 				
   				  }
+
   				  playerLoses.innerHTML = loses;
   				  playerPicks.innerHTML = numberOfGuesses;
   				  playerWins.innerHTML = wins;
